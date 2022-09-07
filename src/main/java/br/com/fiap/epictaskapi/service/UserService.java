@@ -28,6 +28,8 @@ public class UserService {
     public void save(User user){
       user.setPassword(passwordEncoder.encode(user.getPassword()));
       repository.save(user);
+      
+     
     }
     
     public Optional<User> findById(Long id) {

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.epictaskapi.model.User;
+import br.com.fiap.epictaskapi.model.UserNoPassword;
 import br.com.fiap.epictaskapi.service.UserService;
 
 @RestController
@@ -32,9 +33,9 @@ public class UsuarioController {
 	}
 
   @PostMapping
-  public ResponseEntity<User> create(@RequestBody @Valid User user){
+  public ResponseEntity<UserNoPassword> create(@RequestBody @Valid User user){
       service.save(user);
-      return ResponseEntity.status(HttpStatus.CREATED).body(user);
+      return ResponseEntity.status(HttpStatus.CREATED).body(new UserNoPassword(user));
   }
 
   

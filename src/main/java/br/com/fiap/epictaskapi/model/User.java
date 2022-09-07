@@ -9,13 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "TB_USER")
@@ -26,7 +23,7 @@ public class User implements UserDetails {
     private String name;
     private String email;
 
-    @JsonIgnore
+
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -59,8 +56,15 @@ public class User implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    
+    
 
-    @Override
+    public Long getId() {
+		return id;
+	}
+
+	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.roles;
     }

@@ -39,7 +39,6 @@ public class TestConfiguration implements CommandLineRunner {
             new Task("Login", "prototipar as telas"),
             new Task("Logout", "prototipar as telas"),
             new Task("Outro bug", "prototipar as telas")
-
         ));        
 
         userRepository.save(
