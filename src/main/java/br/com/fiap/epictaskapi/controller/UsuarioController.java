@@ -36,4 +36,5 @@ public class UsuarioController {
       service.save(user);
       return ResponseEntity.status(HttpStatus.CREATED).body(user);
   }
+  
 }
