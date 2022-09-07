@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "TB_USER")
 public class User implements UserDetails {
@@ -23,6 +25,8 @@ public class User implements UserDetails {
     private Long id;
     private String name;
     private String email;
+
+    @JsonIgnore
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
