@@ -43,23 +43,25 @@ public class TestConfiguration implements CommandLineRunner {
 
         userRepository.save(
             new User(
-                "João", 
-                "joao@example.com", 
-                passwordEncoder.encode("12"))
+                "fiap", 
+                "admin@fiap.com.br", 
+                passwordEncoder.encode("administrador"))
         );
         
         userRepository.save(
                 new User(
-                    "Jonathan", 
-                    "jonathan@example.com", 
-                    passwordEncoder.encode("1234"))
+                    "Cristine", 
+                    "Cristine@fiap.com.br", 
+                    passwordEncoder.encode("dev"))
             );
+        
         userRepository.save(
                 new User(
-                    "Cristine", 
-                    "Cristine@example.com", 
-                    passwordEncoder.encode("12345"))
+                    "Jonathan", 
+                    "jonathan@fiap.com.br", 
+                    passwordEncoder.encode("dev1"))
             );
+     
     }
     
 }

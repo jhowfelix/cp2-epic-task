@@ -13,34 +13,37 @@ import br.com.fiap.epictaskapi.repository.UserRepository;
 
 @Service
 public class UserService {
-    
-    @Autowired
-    UserRepository repository;
 
+	@Autowired
+	UserRepository repository;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
-    public Page<User> listAll(Pageable paginacao){
-    return repository.findAll(paginacao);	
-    }
+	public Page<User> listAll(Pageable paginacao) {
+		Page<User> findAll = repository.findAll(paginacao);
+		findAll.forEach(t -> t.setPassword(null));
+		return findAll;
+	}
 
-    public void save(User user){
-      user.setPassword(passwordEncoder.encode(user.getPassword()));
-      repository.save(user);
-      
-     
-    }
-    
-    public Optional<User> findById(Long id) {
-    	return repository.findById(id);
-    }
-    
-    public void deleteById(Long id) {
-    	repository.deleteById(id);
-    }
- 
-    
-  
+	public User save(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		repository.save(user);
+		user.setPassword(null);
+		return user;
+
+	}
+
+	public Optional<User> findById(Long id) {
+		Optional<User> findById = repository.findById(id);
+		if(findById.isPresent()) {
+			findById.get().setPassword(null);
+		}
+		return findById;
+	}
+
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
 
 }
