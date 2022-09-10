@@ -28,6 +28,7 @@ public class SecurityConfiguration {
 				.antMatchers(HttpMethod.GET, "/api/user/**").permitAll()
 				.antMatchers(HttpMethod.DELETE, "/api/user/**").authenticated()
 				.antMatchers(HttpMethod.POST, "/api/user/**").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/user/**").authenticated()
 				.anyRequest().denyAll()
 			.and()
 			.csrf().disable();

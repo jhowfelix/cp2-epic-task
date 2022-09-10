@@ -87,6 +87,10 @@ public class User implements UserDetails {
 		return this.email;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;

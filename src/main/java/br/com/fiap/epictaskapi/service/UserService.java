@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.fiap.epictaskapi.model.User;
+import br.com.fiap.epictaskapi.model.UserNoPassword;
 import br.com.fiap.epictaskapi.repository.UserRepository;
 
 @Service
@@ -44,6 +45,22 @@ public class UserService {
 
 	public void deleteById(Long id) {
 		repository.deleteById(id);
+	}
+	
+	
+	public User update(Long id, UserNoPassword user) {
+		Optional<User> findById = findById(id);
+		User user2 = findById.get();
+		user2.setId(id);
+		if(user.getName() != null) {
+			user2.setName(user.getName());
+		}
+		if(user.getEmail() != null) {
+			user2.setName(user.getEmail());
+		}
+		repository.save(user2);
+		user2.setPassword(null);
+		return user2;
 	}
 
 }
