@@ -1,13 +1,19 @@
-# cp2-epic-task
+# Projeto CP2 epic-task do 2º ano da FIAP.
 
-# Integrantes:
+Criação de um projeto CRUD de tarefas usando Spring Boot para a disciplina de DIGITAL BUSINESS ENABLEMENT e o deploy do projeto, 
+feito ho Heroku
 
-## Cristine Acocella || RM 88251
+### Developers: 
+* [Marcos Vinicius Ferreira](https://github.com/marcosnaofazisso) || RM: 86904
+* [Cristine Acocella](https://github.com/cristineacocella) || RM 88251
+* [Jonathan Felix](https://github.com/jhowfelix) || RM: 88082
+* [Priscila Nastacio](https://github.com/PriscilaNastacio) || RM: 88849
+* [Marcos Maciel](https://github.com/Marcos26-tech) || RM: 88267
 
-## Jonathan Felix || RM: 88082
+# Demo
+<img src="./demo/demo.devops.gif" height="500" width="1200">
 
-## Marcos Maciel || RM: 88267
+# Como rodar o projeto 
 
-## Marcos Vinicius || RM: 86904
 
-## Priscila Nastacio || RM: 88849 
+## Thank you!
