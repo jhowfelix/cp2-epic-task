@@ -18,9 +18,9 @@ Content-Type: application/json
 Authorization: Basic admin@fiap.com.br administrador
 
 {
-    "name":"Jonathan",
-    "email": "jon@fiap.com.br",
-    "password": "jon"
+    "name":"Professor João, lindão!",
+    "email": "joao@fiap.com.br",
+    "password": "123"
 }
 ###
 
@@ -31,7 +31,7 @@ Content-Type: application/json
 Authorization: Basic admin@fiap.com.br administrador
 
 {
-    "name":"Joanthan UPDATE",
+    "name":"Jonathan UPDATE",
     "email": "jonathan@fiap.com.br"
 }
 ###
