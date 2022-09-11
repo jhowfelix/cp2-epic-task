@@ -1,16 +1,42 @@
-# Listar todos
+# Listar Usuários
 GET http://localhost:8080/api/user
-
 ###
 
-# Cadastrar
-POST http://localhost:8080/api/task
+
+# Detalhes do usuário
+GET http://localhost:8080/api/user/1
+###
+
+# Apagar usuário
+DELETE http://localhost:8080/api/user/1
+Authorization: Basic admin@fiap.com.br administrador
+###
+
+# Cadastrar usuário
+POST http://localhost:8080/api/user
 Content-Type: application/json
-Authorization: Basic joao@fiap.com.br 123
+Authorization: Basic admin@fiap.com.br administrador
 
 {
-      "title": "BD",
-      "description": "modelar o banco",
-      "score": 100,
-      "status": 0
+    "name":"Jonathan",
+    "email": "jon@fiap.com.br",
+    "password": "jon"
 }
+###
+
+# Alterar usuário
+
+PUT http://localhost:8080/api/user/3
+Content-Type: application/json
+Authorization: Basic admin@fiap.com.br administrador
+
+{
+    "name":"Joanthan UPDATE",
+    "email": "jonathan@fiap.com.br"
+}
+###
+
+
+# Grupo
+GET http://localhost:8080/grupo
+###

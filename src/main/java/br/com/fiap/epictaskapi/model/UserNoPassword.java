@@ -1,9 +1,16 @@
 package br.com.fiap.epictaskapi.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class UserNoPassword {
 
 	private Long id;
+
+	@NotBlank
 	private String name;
+	@Email
+	@NotBlank
 	private String email;
 
 	public UserNoPassword() {

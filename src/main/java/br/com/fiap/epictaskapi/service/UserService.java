@@ -49,18 +49,27 @@ public class UserService {
 	
 	
 	public User update(Long id, UserNoPassword user) {
-		Optional<User> findById = findById(id);
+		Optional<User> findById = repository.findById(id);
 		User user2 = findById.get();
 		user2.setId(id);
 		if(user.getName() != null) {
 			user2.setName(user.getName());
 		}
 		if(user.getEmail() != null) {
-			user2.setName(user.getEmail());
+			user2.setEmail(user.getEmail());
 		}
 		repository.save(user2);
 		user2.setPassword(null);
 		return user2;
+	}
+	
+	public boolean testId(Long id) {
+		Optional<User> findById = repository.findById(id);
+		if(findById.isEmpty()) {
+			return false;
+		}
+		return true;
+		
 	}
 
 }

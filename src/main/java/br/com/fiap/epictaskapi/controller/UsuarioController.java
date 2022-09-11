@@ -34,42 +34,38 @@ public class UsuarioController {
 		return service.listAll(pageable);
 
 	}
-	
-	
-	
-	
+
 	@GetMapping("/{id}")
-	public ResponseEntity<Object> findById(@PathVariable long id){
+	public ResponseEntity<Object> findById(@PathVariable long id) {
 		Optional<User> findById = service.findById(id);
-		if(findById.isEmpty()) {
+		if (findById.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(findById.get());
 	}
-	
+
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Object> deleteById(@PathVariable Long id){
+	public ResponseEntity<Object> deleteById(@PathVariable Long id) {
 		Optional<User> findById = service.findById(id);
-		if(findById.isEmpty()) {
+		if (findById.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		service.deleteById(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<User> create(@RequestBody @Valid User user) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(user));
 	}
-	
+
 	@PutMapping("/{id}")
-	public ResponseEntity<User> update(@PathVariable Long id, @RequestBody UserNoPassword user){
-		Optional<User> findById = service.findById(id);
-		if(findById.isEmpty()) {
+	public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody @Valid UserNoPassword user) {	
+		if(!service.testId(id)) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		;
-		return ResponseEntity.ok().body(service.update(id, user));
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.update(id, user));
 	}
 
 }

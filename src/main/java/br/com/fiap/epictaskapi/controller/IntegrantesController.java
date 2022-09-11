@@ -13,7 +13,7 @@ import br.com.fiap.epictaskapi.model.Integrante;
 import br.com.fiap.epictaskapi.service.IntegranteService;
 
 @RestController
-@RequestMapping("/api/integrantes")
+@RequestMapping("/grupo")
 public class IntegrantesController {
 	
 	

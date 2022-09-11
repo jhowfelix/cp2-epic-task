@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -29,10 +30,13 @@ public class SecurityConfiguration {
 				.antMatchers(HttpMethod.DELETE, "/api/user/**").authenticated()
 				.antMatchers(HttpMethod.POST, "/api/user/**").permitAll()
 				.antMatchers(HttpMethod.PUT, "/api/user/**").authenticated()
-				.antMatchers(HttpMethod.GET, "/api/integrantes").permitAll()
+				.antMatchers(HttpMethod.GET, "/grupo").permitAll()
+				.antMatchers("/h2-console/**").permitAll()
 				.anyRequest().denyAll()
 			.and()
-			.csrf().disable();
+			.csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and().headers().frameOptions().sameOrigin()
+           ;
 		return http.build();
 	}
 
