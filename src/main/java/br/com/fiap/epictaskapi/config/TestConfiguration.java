@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import br.com.fiap.epictaskapi.model.Integrante;
 import br.com.fiap.epictaskapi.model.Task;
 import br.com.fiap.epictaskapi.model.User;
+import br.com.fiap.epictaskapi.repository.IntegranteRepository;
 import br.com.fiap.epictaskapi.repository.TaskRepository;
 import br.com.fiap.epictaskapi.repository.UserRepository;
 
@@ -23,6 +25,10 @@ public class TestConfiguration implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
 
+    
+    @Autowired
+    IntegranteRepository integranteRepository;
+    
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -40,6 +46,14 @@ public class TestConfiguration implements CommandLineRunner {
             new Task("Logout", "prototipar as telas"),
             new Task("Outro bug", "prototipar as telas")
         ));        
+        
+        integranteRepository.saveAll(List.of(
+        		new Integrante("Cristine Acocella", "88251"),
+        		new Integrante("Jonathan Felix", "88082"),
+        		new Integrante("Marcos Vinicius","86904"),
+        		new Integrante("Marcos Maciel", "88267"),
+        		new Integrante("Priscila Nastacio", "88849")
+        		));
 
         userRepository.save(
             new User(

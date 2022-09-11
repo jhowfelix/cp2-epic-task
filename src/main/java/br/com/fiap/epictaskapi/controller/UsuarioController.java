@@ -35,6 +35,9 @@ public class UsuarioController {
 
 	}
 	
+	
+	
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> findById(@PathVariable long id){
 		Optional<User> findById = service.findById(id);
