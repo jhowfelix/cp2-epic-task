@@ -1,5 +1,5 @@
 # Listar todos
-GET http://localhost:8080/api/task
+GET http://localhost:8080/api/user
 
 ###
 
