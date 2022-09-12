@@ -1,19 +1,19 @@
 # Listar Usuários
-GET http://localhost:8080/api/user
+GET https://checkpoint-spring.herokuapp.com/api/user
 ###
 
 
 # Detalhes do usuário
-GET http://localhost:8080/api/user/1
+GET https://checkpoint-spring.herokuapp.com/api/user/1
 ###
 
 # Apagar usuário
-DELETE http://localhost:8080/api/user/1
+DELETE https://checkpoint-spring.herokuapp.com/api/user/1
 Authorization: Basic admin@fiap.com.br administrador
 ###
 
 # Cadastrar usuário
-POST http://localhost:8080/api/user
+POST https://checkpoint-spring.herokuapp.com/api/user
 Content-Type: application/json
 Authorization: Basic admin@fiap.com.br administrador
 
@@ -26,7 +26,7 @@ Authorization: Basic admin@fiap.com.br administrador
 
 # Alterar usuário
 
-PUT http://localhost:8080/api/user/3
+PUT https://checkpoint-spring.herokuapp.com/api/user/3
 Content-Type: application/json
 Authorization: Basic admin@fiap.com.br administrador
 
@@ -38,5 +38,5 @@ Authorization: Basic admin@fiap.com.br administrador
 
 
 # Grupo
-GET http://localhost:8080/grupo
+GET https://checkpoint-spring.herokuapp.com/grupo
 ###
